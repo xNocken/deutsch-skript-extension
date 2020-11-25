@@ -1,0 +1,122 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Deutsches Skript",
+	"patterns": [
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#vars"
+		},
+		{
+			"include": "#objectselect"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#import"
+		},
+		{
+			"include": "#instanz"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control",
+					"match": "(konstante)"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "(und| in |ist)"
+				},
+				{
+					"name": "meta.tag",
+					"match": "eine funktion mit den argumenten"
+				},
+				{
+					"name": "meta.tag",
+					"match": "(führt|aus)"
+				},
+				{
+					"name": "variable.name",
+					"match": "(konstante) .+\\s"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.ds",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ds",
+					"match": "\\\\."
+				}
+			]
+		},
+		"vars": {
+			"name": "meta.tag",
+			"begin": "gib",
+			"end": "in der konsole aus",
+			"patterns": [
+				{
+					"name": "variable.other",
+					"match": "[\\w\\\"]"
+				}
+			]
+		},
+		"operators": {
+			"name": "meta.tag",
+			"begin": "(summe|produkt|quotient|differenz) von",
+			"end": "(summe|produkt|quotient|differenz)?",
+			"patterns": [
+				{
+					"name": "variable.other",
+					"match": "\"?[\\w\\s]+\"? und (\"?[\\w\\s]+\"?)?"
+				}
+			]
+		},
+		"objectselect": {
+			"name": "meta.tag",
+			"patterns": [
+				{
+					"name": "variable.other",
+					"match": "[\\w]+ in [\\w]+"
+				}
+			]
+		},
+		"instanz": {
+			"name": "meta.tag",
+			"begin": "eine neue instanz von",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "variable.other",
+					"match": "\\w"
+				},
+				{
+					"name": "meta.type.annotation",
+					"match": "[\\w^\\(\\)]"
+				}
+			]
+		},
+		"import": {
+			"name": "meta.tag",
+			"begin": "importiert von",
+			"end": "$",
+			"patterns": [
+				{
+					"name": "string.quoted.double",
+					"match": "."
+				}
+			]
+		}
+	},
+	"scopeName": "source.deutschesskript"
+}

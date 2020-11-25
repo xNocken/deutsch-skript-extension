@@ -1,0 +1,30 @@
+{
+    "name": "deutschesskript",
+    "displayName": "deutschesSkript",
+    "description": "support deutschesskript",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "publisher": "xnocken",
+    "categories": [
+        "Programming Languages"
+    ],
+    "repository": {
+        "url": "https://github.com/xNocken/deutsch-skript-extension.git",
+        "type": "git"
+    },
+    "contributes": {
+        "languages": [{
+            "id": "ds",
+            "aliases": ["Deutsches Skript", "ds"],
+            "extensions": [".ds"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ds",
+            "scopeName": "source.deutschesskript",
+            "path": "./syntaxes/ds.tmLanguage.json"
+        }]
+    }
+}
